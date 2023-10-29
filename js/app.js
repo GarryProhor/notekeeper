@@ -1,7 +1,7 @@
 'use strict';
 
 /*module import*/
-import { addEventOnElements, getGreetingMsg } from './utils.js';
+import { addEventOnElements, getGreetingMsg, activeNotebook } from './utils.js';
 import { Tooltip } from './components/Tooltip.js';
 
 /*toggle sidebar in small*/
@@ -58,6 +58,11 @@ const showNotebookFiend = function () {
     `;
 
     $sidebarList.appendChild($navItem);
+
+    const /** {HTMLElement} */ $navItemField = document.querySelector('[data-notebook-field]');
+
+    // Active new created notebook and deactivate the last one
+    activeNotebook.call($navItem);
 }
 
 $addNotebookBtn.addEventListener('click', showNotebookFiend);
