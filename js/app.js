@@ -35,3 +35,22 @@ $greetElem.textContent = getGreetingMsg(currentHour);
  */
 const /** {HTMLElement} */ $currentDateElem = document.querySelector('[data-current-date]');
 $currentDateElem.textContent = new Date().toDateString().replace(' ', ', ');
+
+/**
+ * Notebook create field
+ */
+const /** {HTMLElement} */ $sidebarList = document.querySelector('[data-sidebar-list]');
+const /** {HTMLElement} */ $addNotebookBtn = document.querySelector('[data-add-notebook]');
+
+/**
+ * Shows a notebook creation field in the sidebar when the "Add Notebook" button is clicked
+ * The function dynamically adds a new notebook field element, makes it editable, and listens for
+ * the "Enter" key to create a new notebook when pressed
+ */
+
+const showNotebookFiend = function () {
+    console.log("show notebook field")
+}
+
+$addNotebookBtn.addEventListener('click', showNotebookFiend);
+
