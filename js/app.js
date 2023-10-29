@@ -1,7 +1,12 @@
 'use strict';
 
 /*module import*/
-import { addEventOnElements, getGreetingMsg, activeNotebook } from './utils.js';
+import {
+    addEventOnElements,
+    getGreetingMsg,
+    activeNotebook,
+    makeElemEditable
+} from './utils.js';
 import { Tooltip } from './components/Tooltip.js';
 
 /*toggle sidebar in small*/
@@ -63,6 +68,9 @@ const showNotebookFiend = function () {
 
     // Active new created notebook and deactivate the last one
     activeNotebook.call($navItem);
+
+    //Make notebook field content editable and focus
+    makeElemEditable($navItemField);
 }
 
 $addNotebookBtn.addEventListener('click', showNotebookFiend);
