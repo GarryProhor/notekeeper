@@ -49,7 +49,15 @@ const /** {HTMLElement} */ $addNotebookBtn = document.querySelector('[data-add-n
  */
 
 const showNotebookFiend = function () {
-    console.log("show notebook field")
+    const /** {HTMLElement} */ $navItem = document.createElement('div');
+    $navItem.classList.add('nav-item');
+
+    $navItem.innerHTML = `
+        <span class="text text-label-large" data-notebook-field></span>
+        <div class="state-layer"></div> 
+    `;
+
+    $sidebarList.appendChild($navItem);
 }
 
 $addNotebookBtn.addEventListener('click', showNotebookFiend);
