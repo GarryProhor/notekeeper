@@ -42,9 +42,20 @@ const activeNotebook = function () {
     $lastActiveNavItem = this; // $navItem
 }
 
+/**
+ * Makes a DOM element editable by setting the 'contenteditable' attribute to true and focusing on it
+ *
+ * @param {HTMLElement} $element - The DOM element to make editable
+ */
+const makeElemEditable = function ($element) {
+    $element.setAttribute('contenteditable', true);
+    $element.focus();
+}
+
     export {
     addEventOnElements,
     getGreetingMsg,
     activeNotebook,
+    makeElemEditable,
 }
 
