@@ -20,4 +20,15 @@ const initDB = function () {
 
 initDB();
 
+/**
+ * Collection of function for performing CRUD operation on database
+ * The database state is managed using global variables and local storage
+ *
+ * @namespace
+ * @property {Object} get - Function for retrieving data from the database
+ * @property {Object} post - Function for adding data to the database
+ * @property {Object} update - Function for updating data in the database
+ * @property {Object} delete - Function for deleting data from the database
+ */
+
 export const db = {};
