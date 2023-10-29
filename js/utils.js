@@ -38,8 +38,8 @@ let /** {HTMLElement} | undefined */ $lastActiveNavItem;
 
 const activeNotebook = function () {
     $lastActiveNavItem?.classList.remove('active');
-    this.classList.add('active'); //this
-    $lastActiveNavItem = this;
+    this.classList.add('active'); //this $navItem
+    $lastActiveNavItem = this; // $navItem
 }
 
     export {
