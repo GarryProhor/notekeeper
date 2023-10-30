@@ -21,6 +21,20 @@ const initDB = function () {
 initDB();
 
 /**
+ * Reads and loads the localStorage data in to the global variable 'notekeeperDB'
+ */
+const readDB = function (){
+    notekeeperDB = JSON.parse(localStorage.getItem('notekeeperDB'));
+}
+
+/**
+ * Writes the current state of the global variable 'notekeeperDB' to local storage
+ */
+const writeDB = function (){
+    localStorage.setItem('notekeeperDB', JSON.stringify(notekeeperDB));
+}
+
+/**
  * Collection of function for performing CRUD operation on database
  * The database state is managed using global variables and local storage
  *
@@ -31,4 +45,21 @@ initDB();
  * @property {Object} delete - Function for deleting data from the database
  */
 
-export const db = {};
+export const db = {
+
+    post: {
+        /**
+         * Adds a new notebook to the database
+         *
+         * @function
+         * @param {string} name - The name of the new notebook
+         * @returns {Object} The newly created notebook object
+         */
+        notebook(name){
+            readDB();
+            console.log(name);
+            writeDB();
+        }
+    }
+
+};
