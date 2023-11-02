@@ -65,7 +65,7 @@ const showNotebookFiend = function () {
 
     $sidebarList.appendChild($navItem);
 
-    const /** {HTMLElement} */ $navItemField = document.querySelector('[data-notebook-field]');
+    const /** {HTMLElement} */ $navItemField = $navItem.querySelector('[data-notebook-field]');
 
     // Active new created notebook and deactivate the last one
     activeNotebook.call($navItem);
