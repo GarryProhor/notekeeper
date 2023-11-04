@@ -90,7 +90,7 @@ const createNotebook = function (event) {
     if(event.key === 'Enter'){
 
         // Store new created notebook in database
-        db.post.notebook(this.textContent);
+        db.post.notebook(this.textContent || 'Untitled');//this
 
     }
 }
