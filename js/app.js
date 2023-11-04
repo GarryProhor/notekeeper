@@ -9,6 +9,7 @@ import {
 } from './utils.js';
 import { Tooltip } from './components/Tooltip.js';
 import { db } from './db.js';
+import { client } from './client.js'
 
 /*toggle sidebar in small*/
 
@@ -90,8 +91,11 @@ const createNotebook = function (event) {
     if(event.key === 'Enter'){
 
         // Store new created notebook in database
-        db.post.notebook(this.textContent || 'Untitled');//this
+        const /** {Object} */ notebookData = db.post.notebook(this.textContent || 'Untitled');//this $navItemField
+        this.parentElement.remove();
 
+        //Render navItem
+        client.notebook.create(notebookData);
     }
 }
 
