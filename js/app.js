@@ -7,9 +7,9 @@ import {
     activeNotebook,
     makeElemEditable
 } from './utils.js';
-import { Tooltip } from './components/Tooltip.js';
-import { db } from './db.js';
-import { client } from './client.js'
+import {Tooltip} from './components/Tooltip.js';
+import {db} from './db.js';
+import {client} from './client.js'
 
 /*toggle sidebar in small*/
 
@@ -17,7 +17,7 @@ const /*{HTMLElement*/ $sidebar = document.querySelector('[data-sidebar]');
 const /*{Array<HTMLElement>*/ $sidebarTogglers = document.querySelectorAll('[data-sidebar-toggler]');
 const /*{HTMLElement*/ $overlay = document.querySelector('[data-sidebar-overlay]');
 
-addEventOnElements($sidebarTogglers, 'click', function ()  {
+addEventOnElements($sidebarTogglers, 'click', function () {
     $sidebar.classList.toggle('active');
     $overlay.classList.toggle('active');
 });
@@ -88,7 +88,7 @@ $addNotebookBtn.addEventListener('click', showNotebookFiend);
  * @param {KeyboardEvent} event - The keyboard event that triggered notebook creation
  */
 const createNotebook = function (event) {
-    if(event.key === 'Enter'){
+    if (event.key === 'Enter') {
 
         // Store new created notebook in database
         const /** {Object} */ notebookData = db.post.notebook(this.textContent || 'Untitled');//this $navItemField
@@ -98,4 +98,14 @@ const createNotebook = function (event) {
         client.notebook.create(notebookData);
     }
 }
+
+/**
+ * Renders the existing notebook list by retrieving data from the database and passing it to the client
+ */
+const renderExistedNotebook = function () {
+    const /** {Array} */ notebookList = db.get.notebook();
+    client.notebook.read(notebookList);
+}
+renderExistedNotebook();
+
 
