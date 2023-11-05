@@ -4,7 +4,7 @@ import {NavItem} from "./components/NavItem.js";
 import {activeNotebook} from "./utils.js";
 
 const /** {HTMLElement} */ $sidebarList = document.querySelector('[data-sidebar-list]');
-const /** {HTMLElement} */ $notePanelTitle = document.querySelector('[data-note-oanel-title]')
+const /** {HTMLElement} */ $notePanelTitle = document.querySelector('[data-note-oanel-title]');
 
 /**
  * The client object manages interactions with the user interface (UI) to create,
@@ -27,7 +27,23 @@ export const client = {
             $sidebarList.appendChild($navItem);
             activeNotebook.call($navItem);
             $notePanelTitle.textContent = notebookData.name;
-        }
+        },
+
+        /**
+         * Reads and displays a list of notebooks in the UI
+         *
+         * @param {Array<Object>} notebookList - List of notebook data to display
+         */
+        read(notebookList){
+            notebookList.forEach((notebookData, index) => {
+                const /** {HTMLElement} */ $navItem = NavItem(notebookData.id, notebookData.name);
+                if(index === 0){
+                    activeNotebook.call($navItem);
+                    $notePanelTitle.textContent = notebookData.name;
+                }
+                $sidebarList.appendChild($navItem);
+            });
+        },
 
     }
 
